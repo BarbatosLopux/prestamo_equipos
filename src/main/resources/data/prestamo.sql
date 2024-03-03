@@ -44,7 +44,7 @@ fecha_entrega DATE NOT NULL,
 fecha_recibido DATE NOT NULL,
 fk_serial_computador VARCHAR(150) NOT NULL,
     fk_dni_empleado INT NOT NULL,
-    estado_acta ENUM('entraga',"recibido") NOT NULL,
+    estado_acta ENUM('entraga','recibo') NOT NULL,
     PRIMARY KEY(numero_acta)
     );
 
