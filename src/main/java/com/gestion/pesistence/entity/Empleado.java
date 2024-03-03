@@ -1,10 +1,9 @@
 package com.gestion.pesistence.entity;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
-import java.util.List;
+
 
 
 @Entity
@@ -13,28 +12,32 @@ import java.util.List;
 public class Empleado {
     @Id
     @Column(name = "dni_empleado" ,nullable = false,columnDefinition = "BIGINT ")
-    private String dni_empleado;
+    private Long dniEmpleado;
+
     @Column(name = "nombre" ,nullable = false,columnDefinition = "varchar(50) ")
-    private String nombre ;
+    private String nombre;
+
     @Column(name = "apellido" ,nullable = false,columnDefinition = "varchar(50) ")
-    private String apellido ;
+    private String apellido;
+
+
     @Column(name = "fecha_nacimiento" ,nullable = false,columnDefinition = "date ")
-    private Date fechaNacimiento ;
+    private Date fechaNacimiento;
+
     @Column(name = "estado_empleado" ,nullable = false,columnDefinition = "tinyint(1)")
-    private Boolean estadoEmpleado ;
+    private int estadoEmpleado;
+
     @Column(name = "telefono" ,nullable = false,columnDefinition = "varchar(50) ")
-    private String telefono ;
+    private String telefono;
+
     @Column(name = "email" ,nullable = true,columnDefinition = "varchar(255) ")
-    private String email ;
-    @Column(name = "sexo" )
+    private String email;
+
     @Enumerated(EnumType.STRING)
-    private SexoEmpleado sexoEmpleado ;
+    @Column(name = "sexo")
+    private SexoEmpleado sexo;
 
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "fk_id_cargo")
-    private Cargo cargo ;
-
-    @OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<Acta> acta ;
+    private Cargo cargo;
 }

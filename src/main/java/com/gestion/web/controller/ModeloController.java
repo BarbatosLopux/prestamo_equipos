@@ -1,8 +1,7 @@
 package com.gestion.web.controller;
 
-import com.gestion.domain.service.empleado.EmpleadoService;
-import com.gestion.pesistence.entity.Empleado;
-
+import com.gestion.domain.service.modelo.ModeloService;
+import com.gestion.pesistence.entity.Modelo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,19 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
 @RestController
-@RequestMapping(value = Ruta.RUTA_EMPLEADO)
-public class EmpleadoController {
+@RequestMapping(value = "/api/modelo/all")
+public class ModeloController {
 
     @Autowired
-    private EmpleadoService empleadoService ;
+    private ModeloService modeloService ;
 
     @GetMapping
-    public List<Empleado> listarTodo() {
-        return empleadoService.listarEmpleado();
+    public List<Modelo> modeloListar (){
+        return  modeloService.listaModelo();
     }
-
 
 
 }

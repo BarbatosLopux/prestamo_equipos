@@ -1,4 +1,4 @@
-package com.gestion.domain.service;
+package com.gestion.domain.service.empleado;
 
 import com.gestion.domain.repository.EmpleadoRepository;
 import com.gestion.pesistence.entity.Empleado;
@@ -19,20 +19,8 @@ public class EmpleadoServiceImpl implements EmpleadoService{
 
     @Override
     public List<Empleado> listarEmpleado() {
-        return empleadoRepository.findAll();
+        return empleadoRepository.findAll() ;
     }
 
-    @Override
-    public void crearEmpleado(Empleado empleado) {
-
-    }
-
-    @Override
-    public void actualizarEmpleado(Empleado empleado) {
-        //falta implementacion
-    }
-
-    @Override
-    public void eliminarEmpleado(String dni_empleado) {
-    }
+   
 }
