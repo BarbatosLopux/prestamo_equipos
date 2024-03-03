@@ -12,7 +12,7 @@ import java.util.Date;
 public class Empleado {
     @Id
     @Column(name = "dni_empleado" ,nullable = false,columnDefinition = "BIGINT ")
-    private Long dniEmpleado;
+    private long dniEmpleado;
 
     @Column(name = "nombre" ,nullable = false,columnDefinition = "varchar(50) ")
     private String nombre;

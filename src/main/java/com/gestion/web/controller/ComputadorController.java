@@ -12,7 +12,9 @@ import java.util.List;
 public class ComputadorController {
     @Autowired
     private ComputadorServiceImpl computadorServiceImpl ;
-    @RequestMapping(value = "/api/computador/all")
+
+
+    @RequestMapping(value = "/a")
     public List<Computador> listaPc(){
         return  computadorServiceImpl.getComputador();
     }

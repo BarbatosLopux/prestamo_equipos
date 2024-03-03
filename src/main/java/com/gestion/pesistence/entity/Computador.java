@@ -41,7 +41,6 @@ public class Computador {
     @Column(name = "tipo")
     private TipoComputador tipo;
 
-
     @ManyToOne
     @JoinColumn(name = "fk_cod_inventario")
     private Inventario inventario;
