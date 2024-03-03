@@ -26,6 +26,10 @@ public class Empleado {
     private String telefono ;
     @Column(name = "email" ,nullable = true,columnDefinition = "varchar(255) ")
     private String email ;
+    @Column(name = "sexo" )
+    @Enumerated(EnumType.STRING)
+    private SexoEmpleado sexoEmpleado ;
+
 
     @OneToOne
     @JoinColumn(name = "fk_id_cargo")
