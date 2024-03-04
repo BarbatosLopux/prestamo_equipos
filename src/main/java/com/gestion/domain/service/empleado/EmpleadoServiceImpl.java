@@ -1,6 +1,8 @@
 package com.gestion.domain.service.empleado;
 
+import com.gestion.domain.repository.CargoRepository;
 import com.gestion.domain.repository.EmpleadoRepository;
+import com.gestion.pesistence.dto.EmpleadoDto;
 import com.gestion.pesistence.entity.Cargo;
 import com.gestion.pesistence.entity.Empleado;
 import jakarta.transaction.Transactional;
@@ -18,6 +20,9 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     @Autowired
     private EmpleadoRepository empleadoRepository;
 
+
+    @Autowired
+    private CargoRepository cargoRepository ;
 
     @Override
     public List<Empleado> listarEmpleado() {
@@ -42,14 +47,20 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     }
 
 
-    @Override
-    public void crearEmpleado(Empleado empleado) {
-        if(empleadoRepository.existsById(empleado.getDniEmpleado())){
-        throw new RuntimeException("Ya existe un empleado con el DNI proporcionado.");   
-    } else {
-        empleadoRepository.save(empleado);
+    
+    public void crearEmpleado(EmpleadoDto empleadoDto) {
+        if(empleadoRepository.existsById(empleadoDto.getDniEmpleado())){
+            throw new RuntimeException("Ya existe un empleado con el DNI proporcionado.");   
+        } else {
+            Empleado empleado = new Empleado();
+            // copia los campos de empleadoDto a empleado
+            // ...
+            Cargo cargo = cargoRepository.findById(empleadoDto.getCargoId())
+                .orElseThrow(() -> new RuntimeException("Cargo no encontrado"));
+            empleado.setCargo(cargo);
+            empleadoRepository.save(empleado);
+        }
     }
-}
 
     @Override
     public void modificarEmpleado(Empleado empleado) {
