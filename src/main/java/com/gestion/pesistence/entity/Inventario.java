@@ -3,7 +3,7 @@ package com.gestion.pesistence.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
+
 
 @Entity
 @Table(name = "inventario")

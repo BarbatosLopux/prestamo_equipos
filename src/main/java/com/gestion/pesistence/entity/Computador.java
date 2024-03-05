@@ -1,11 +1,8 @@
 package com.gestion.pesistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "computador")
@@ -15,9 +12,6 @@ public class Computador {
     @Id
     @Column(name = "serial_computador" ,nullable = false,columnDefinition = "varchar(150)")
     private String serialComputador;
-
-
-
     @Column(name = "fecha_adquisicion" ,nullable = false,columnDefinition = "date")
     private Date fechaAdquisicion;
 
@@ -48,4 +42,7 @@ public class Computador {
     @ManyToOne
     @JoinColumn(name = "id_modelo_fk")
     private Modelo modelo;
+
+    @Column(name = "equipo_activo" ,nullable = false,columnDefinition = "tinyint(1)")
+    private boolean equipoActivo ;
 }

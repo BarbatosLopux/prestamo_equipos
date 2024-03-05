@@ -55,10 +55,10 @@ public class EmpleadoServiceImpl implements EmpleadoService{
         if(empleadoRepository.existsById(empleadoDto.getDniEmpleado())){
             throw new RuntimeException("Ya existe un empleado con el DNI proporcionado.");   
         } else {
-            System.out.println(empleadoDto.getCargoId());
             Optional<Cargo> cargoOptional = cargoRepository.findById(empleadoDto.getCargoId());
             Cargo cargo = cargoOptional.orElseThrow(() -> new RuntimeException("Cargo no encontrado con el ID proporcionado."));
             Empleado empleado = new Empleado();
+            //SETTERS
             empleado.setDniEmpleado(empleadoDto.getDniEmpleado());
             empleado.setNombre(empleadoDto.getNombre());
             empleado.setApellido(empleadoDto.getApellido());
@@ -98,7 +98,7 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     public void desactivarEmpleado(long dniEmpleado) {
         var empleadoOptional = buscarEmpleado(dniEmpleado);
         if (!empleadoOptional.isPresent()) {
-            throw new RuntimeException("El empleado que deseas modificar desactivar no se encuentra en la base datos");    
+            throw new RuntimeException("El empleado que deseas  desactivar no se encuentra en la base datos");    
         }else{
             //desactivo al usuario
             empleadoRepository.modificarEstadoEmpleado(dniEmpleado,0);

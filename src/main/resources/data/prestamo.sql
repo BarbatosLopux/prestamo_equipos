@@ -18,13 +18,10 @@ CREATE TABLE IF NOT EXISTS empleado(
     sexo ENUM('HOMBRE','MUJER') NOT NULL,
      PRIMARY KEY(dni_empleado)
 );
-CREATE TABLE IF NOT EXISTS  inventario(
-   cod_inventario VARCHAR(4) NOT NULL,
-   stock INT NOT NULL,
-   nombre_inventario VARCHAR(50) NOT NULL,
-   precio_equipo DOUBLE(8, 2) NOT NULL,
-   PRIMARY KEY(cod_inventario)
-);
+
+
+
+
 CREATE TABLE IF NOT EXISTS  modelo(
     id_modelo VARCHAR(20) NOT NULL,
     fk_id_marca BIGINT NOT NULL,
@@ -60,7 +57,8 @@ CREATE TABLE IF NOT EXISTS  computador(
    procesador VARCHAR(255) NOT NULL,
    tipo ENUM('MESA','PORTATIL') NOT NULL,
    id_modelo_fk VARCHAR(20) NOT NULL,
-   PRIMARY KEY(serial_computador)
+   PRIMARY KEY(serial_computador) ,
+   equipo_activo tinyint(1) NOT  NULL
 );
 
 -- llaves unicas
