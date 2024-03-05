@@ -17,5 +17,5 @@ public class EmpleadoDto {
     private String telefono;
     private String email;
     private SexoEmpleado sexo;
-    private int cargoId; 
+    private long cargoId; 
 }

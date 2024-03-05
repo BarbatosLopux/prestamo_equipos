@@ -14,14 +14,20 @@ public interface Ruta {
     
     //RUTAS ABSOLUTA Y RELATICVA DE EMPLEADO
     String RUTA_EMPLEADO = "/api/empleado/all";
-    String RUTA_EMPLEADO_BUSQUEDA = "api/empleado/{dniEmpleado}";
-    String RUTA_EMPLEADO_MODIFICACION = "api/empleado";
+    String RUTA_EMPLEADO_BUSQUEDA = "/api/empleado/{dniEmpleado}";
+    String RUTA_EMPLEADO_MODIFICACION = "/api/empleado";
 
     String RUTA_ACTA = "/api/acta/all";
     String RUTA_INVENTARIO = "/api/inventario/all";
 
+
     String RUTA_MARCA = "/api/marca/all";
-    String RUTA_MODELO = "/api/marca/all";
+    String RUTA_MARCA_BUSQUEDA = "/api/marca/{idMarca}";
+    String RUTA_MARCA_MODIFICACION = "/api/marca";
+
+    String RUTA_MODELO = "/api/modelo/all";
+    String RUTA_MODELO_BUSQUEDA = "/api/modelo/{idModelo}";
+    String RUTA_MODELO_MODIFICACION = "/api/modelo";
 
     String RUTA_COMPUTADOR = "/api/computador/all";
 
